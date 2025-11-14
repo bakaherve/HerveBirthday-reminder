@@ -2,15 +2,16 @@ name: Birthday Reminder
 
 on:
   schedule:
-    - cron: "0 7 * * *"   # Tous les jours à 07h00 UTC
-  workflow_dispatch:        # Permet de tester à la main
+    - cron: "0 7 * * *"
+  workflow_dispatch:
 
 jobs:
   run-script:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -18,11 +19,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install --upgrade pip
 
       - name: Run reminder script
         env:
           EMAIL: ${{ secrets.EMAIL }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           TARGET_EMAIL: ${{ secrets.TARGET_EMAIL }}
-        run: python bot.py
+        run: |
+          echo "Running bot.py..."
+          python bot.py

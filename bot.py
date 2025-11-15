@@ -25,16 +25,26 @@ def send_email(to_email, subject, body):
     except Exception as e:
         print(f"⚠️ Erreur en envoyant à {to_email}: {e}")
 
-def send_birthday_notifications(name, notify_list):
-    subject = f"🎉 Aujourd'hui, un Bakatamba change d'âge : {name} !"
-    
-    body = (
-        f"Salut les frères,\n\n"
-        f"Aujourd'hui c'est l'anniversaire de {name} 🎂🎉.\n"
-        f"N'oubliez pas de lui souhaiter un bon anniversaire !\n\n"
-        f"— BakatambaBot 🤖"
-    )
+def notify_brothers(name, notify_list, message_type="default"):
+    # Messages
+    if message_type == "papa":
+        subject = "🎉 Aujourd'hui, notre cher Papa fête son anniversaire !"
+        body = (
+            "Salut les frères,\n\n"
+            "Aujourd'hui c'est l'anniversaire de notre cher papa ❤️🎉.\n"
+            "N'oublions pas de lui souhaiter un bon anniversaire et de l'appeler !\n\n"
+            "— BakatambaBot 🤖"
+        )
+    else:
+        subject = f"🎉 Aujourd'hui, un Bakatamba change d'âge : {name} !"
+        body = (
+            f"Salut les frères,\n\n"
+            f"Aujourd'hui c'est l'anniversaire de {name} 🎂🎉.\n"
+            "N'oubliez pas de lui souhaiter un bon anniversaire !\n\n"
+            "— BakatambaBot 🤖"
+        )
 
+    # Envoi à toute la liste
     for email in notify_list:
         send_email(email, subject, body)
 
@@ -46,8 +56,14 @@ def check_birthdays():
 
     for name, info in data.items():
         if info["date"] == today:
-            print(f"🎯 Anniversaire trouvé : {name}")
-            send_birthday_notifications(name, info["notify"])
+
+            print(f"🎯 ANNIVERSAIRE TROUVÉ : {name}")
+
+            if name == "Papa":
+                notify_brothers(name, info["notify"], message_type="papa")
+            else:
+                notify_brothers(name, info["notify"], message_type="default")
+
         else:
             print(f"— Pas d'anniversaire pour {name}")
 

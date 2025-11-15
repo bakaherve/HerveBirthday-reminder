@@ -2,8 +2,8 @@ name: Birthday Reminder
 
 on:
   schedule:
-    - cron: "17 17 * * *"   # Tous les jours à 07h00 UTC
-  workflow_dispatch:        # Permet de tester à la main
+    - cron: "30 18 * * *"   # 17:15 UTC → 19:15 en Grèce
+  workflow_dispatch:
 
 jobs:
   run-script:
@@ -17,8 +17,9 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Install dependencies
-        run: pip install requests
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
 
       - name: Run reminder script
         env:

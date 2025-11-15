@@ -2,7 +2,7 @@ name: Birthday Reminder
 
 on:
   schedule:
-    - cron: "30 18 * * *"   # 17:15 UTC → 19:15 en Grèce
+    - cron: "26 19 * * *"   # 17:15 UTC → 19:15 en Grèce
   workflow_dispatch:
 
 jobs:

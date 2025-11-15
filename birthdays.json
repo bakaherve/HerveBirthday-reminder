@@ -1,0 +1,73 @@
+{
+  "Christian": {
+    "date": "01-21",
+    "email": "christian@yaoo.fr",
+    "notify": [
+      "cynthiabakayuu@yahoo.fr",
+      "tony@yahoo.fr",
+      "johnny@yahoo.fr",
+      "bakaherve@yahoo.fr",
+      "hessbakalintello@gmail.com"
+    ]
+  },
+
+  "Cynthia": {
+    "date": "03-29",
+    "email": "cynthiabakayuu@yahoo.fr",
+    "notify": [
+      "christian@yaoo.fr",
+      "tony@yahoo.fr",
+      "johnny@yahoo.fr",
+      "bakaherve@yahoo.fr",
+      "hessbakalintello@gmail.com"
+    ]
+  },
+
+  "Tony": {
+    "date": "03-31",
+    "email": "tony@yahoo.fr",
+    "notify": [
+      "christian@yaoo.fr",
+      "cynthiabakayuu@yahoo.fr",
+      "johnny@yahoo.fr",
+      "bakaherve@yahoo.fr",
+      "hessbakalintello@gmail.com"
+    ]
+  },
+
+  "Johnny": {
+    "date": "03-31",
+    "email": "johnny@yahoo.fr",
+    "notify": [
+      "christian@yaoo.fr",
+      "cynthiabakayuu@yahoo.fr",
+      "tony@yahoo.fr",
+      "bakaherve@yahoo.fr",
+      "hessbakalintello@gmail.com"
+    ]
+  },
+
+  "Bob": {
+    "date": "05-29",
+    "email": "bakaherve@yahoo.fr",
+    "notify": [
+      "christian@yaoo.fr",
+      "cynthiabakayuu@yahoo.fr",
+      "tony@yahoo.fr",
+      "johnny@yahoo.fr",
+      "hessbakalintello@gmail.com"
+    ]
+  },
+
+  "Hervé": {
+    "date": "05-30",
+    "email": "hessbakalintello@gmail.com",
+    "notify": [
+      "christian@yaoo.fr",
+      "cynthiabakayuu@yahoo.fr",
+      "tony@yahoo.fr",
+      "johnny@yahoo.fr",
+      "bakaherve@yahoo.fr"
+    ]
+  }
+      }

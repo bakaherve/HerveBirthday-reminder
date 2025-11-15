@@ -4,50 +4,53 @@ from email.mime.text import MIMEText
 from datetime import datetime
 import os
 
-# Récupération des variables depuis GitHub Secrets
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("EMAIL_PASSWORD")
-TARGET = os.getenv("TARGET_EMAIL")
 
-def send_reminder(name):
-    print(f"[INFO] Envoi de l'email pour : {name}")
-
-    subject = f"🎉 Rappel : Anniversaire de {name} aujourd'hui !"
+def send_email(targets, birthday_person):
+    subject = f"🎉 Aujourd'hui, un Bakatamba change d'âge : {birthday_person} !"
     body = (
-        f"Salut Hervé,\n\n"
-        f"Aujourd'hui c'est l'anniversaire de {name} 🎂🎉.\n\n"
-        "— BirthdayReminderBot 🤖\n"
+        f"Salut les frères,\n\n"
+        f"Aujourd'hui c'est l'anniversaire de {birthday_person} 🎂🎉.\n"
+        f"N'oubliez pas de lui souhaiter un bon anniversaire !\n\n"
+        "— BakatambaBot 🤖"
     )
 
     msg = MIMEText(body)
     msg["From"] = EMAIL
-    msg["To"] = TARGET
     msg["Subject"] = subject
 
     try:
         with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
             server.login(EMAIL, PASSWORD)
-            server.send_message(msg)
-        print("[SUCCÈS] Email envoyé !")
+            for t in targets:
+                msg["To"] = t
+                server.send_message(msg)
+                print(f"[OK] Email envoyé à → {t}")
     except Exception as e:
-        print(f"[ERREUR] Impossible d'envoyer l'email : {e}")
+        print(f"[ERREUR SMTP] {e}")
 
 def check_birthdays():
-    today = datetime.now().strftime("%d/%m")  # Format JJ/MM
+    today = datetime.now().strftime("%d/%m")
     print(f"[INFO] Aujourd'hui : {today}")
 
-    # Lecture du fichier JSON
     with open("reminders.json") as f:
         data = json.load(f)
 
-    found = False
-    for name, date in data.items():
-        print(f"[CHECK] Vérification : {name} -> {date}")
-        if date == today:
-            found = True
-            send_reminder(name)
+    is_birthday = False
 
-    if not found:
+    for name, info in data.items():
+        date = info["date"]
+        if date == today:
+            is_birthday = True
+            print(f"[INFO] 🎉 Anniversaire détecté : {name}")
+
+            target_email = info["email"]
+            other_emails = [d["email"] for p, d in data.items() if p != name]
+
+            send_email(other_emails, name)
+
+    if not is_birthday:
         print("[INFO] Aucun anniversaire aujourd'hui.")
 
 if __name__ == "__main__":

@@ -1,6 +1,6 @@
 {
   "Christian": {
-    "date": "11-15",
+    "date": "01-21",
     "email": "christian@yaoo.fr",
     "notify": [
       "cynthiabakayuu@yahoo.fr",
@@ -68,6 +68,19 @@
       "tony@yahoo.fr",
       "johnny@yahoo.fr",
       "bakaherve@yahoo.fr"
+    ]
+  },
+
+  "Papa": {
+    "date": "07-13",
+    "email": "none",
+    "notify": [
+      "christian@yaoo.fr",
+      "cynthiabakayuu@yahoo.fr",
+      "tony@yahoo.fr",
+      "johnny@yahoo.fr",
+      "bakaherve@yahoo.fr",
+      "hessbakalintello@gmail.com"
     ]
   }
       }

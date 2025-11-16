@@ -1,11 +1,11 @@
 {
   "Christian": {
     "date": "01-21",
-    "email": "christian@yaoo.fr",
+    "email": "c.boffelbaka@gmail.com",
     "notify": [
-      "cynthiabakayuu@yahoo.fr",
-      "tony@yahoo.fr",
-      "johnny@yahoo.fr",
+      "cynthiabaka@yahoo.fr",
+      "Sicubaka@gmail.com",
+      "Johnny.baka@cp-kapital.eu",
       "bakaherve@yahoo.fr",
       "hessbakalintello@gmail.com"
     ]
@@ -13,11 +13,11 @@
 
   "Cynthia": {
     "date": "03-29",
-    "email": "cynthiabakayuu@yahoo.fr",
+    "email": "cynthiabaka@yahoo.fr",
     "notify": [
-      "christian@yaoo.fr",
-      "tony@yahoo.fr",
-      "johnny@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "Sicubaka@gmail.com",
+      "Johnny.baka@cp-kapital.eu",
       "bakaherve@yahoo.fr",
       "hessbakalintello@gmail.com"
     ]
@@ -25,11 +25,11 @@
 
   "Tony": {
     "date": "03-31",
-    "email": "tony@yahoo.fr",
+    "email": "Sicubaka@gmail.com",
     "notify": [
-      "christian@yaoo.fr",
-      "cynthiabakayuu@yahoo.fr",
-      "johnny@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "cynthiabaka@yahoo.fr",
+      "Johnny.baka@cp-kapital.eu",
       "bakaherve@yahoo.fr",
       "hessbakalintello@gmail.com"
     ]
@@ -37,11 +37,11 @@
 
   "Johnny": {
     "date": "03-31",
-    "email": "johnny@yahoo.fr",
+    "email": "Johnny.baka@cp-kapital.eu",
     "notify": [
-      "christian@yaoo.fr",
-      "cynthiabakayuu@yahoo.fr",
-      "tony@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "cynthiabaka@yahoo.fr",
+      "Sicubaka@gmail.com",
       "bakaherve@yahoo.fr",
       "hessbakalintello@gmail.com"
     ]
@@ -51,10 +51,10 @@
     "date": "05-29",
     "email": "bakaherve@yahoo.fr",
     "notify": [
-      "christian@yaoo.fr",
-      "cynthiabakayuu@yahoo.fr",
-      "tony@yahoo.fr",
-      "johnny@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "cynthiabaka@yahoo.fr",
+      "Sicubaka@gmail.com",
+      "Johnny.baka@cp-kapital.eu",
       "hessbakalintello@gmail.com"
     ]
   },
@@ -63,24 +63,25 @@
     "date": "05-30",
     "email": "hessbakalintello@gmail.com",
     "notify": [
-      "christian@yaoo.fr",
-      "cynthiabakayuu@yahoo.fr",
-      "tony@yahoo.fr",
-      "johnny@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "cynthiabaka@yahoo.fr",
+      "Sicubaka@gmail.com",
+      "Johnny.baka@cp-kapital.eu",
       "bakaherve@yahoo.fr"
     ]
   },
 
   "Papa": {
-    "date": "11-16",
-    "email": "none",
+    "date": "07-13",
+    "email": "",
     "notify": [
-      "christian@yaoo.fr",
-      "cynthiabakayuu@yahoo.fr",
-      "tony@yahoo.fr",
-      "johnny@yahoo.fr",
+      "c.boffelbaka@gmail.com",
+      "cynthiabaka@yahoo.fr",
+      "Sicubaka@gmail.com",
+      "Johnny.baka@cp-kapital.eu",
       "bakaherve@yahoo.fr",
       "hessbakalintello@gmail.com"
-    ]
+    ],
+    "special_message": true
   }
-      }
+}

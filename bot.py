@@ -4,10 +4,16 @@ from email.mime.text import MIMEText
 from datetime import datetime
 import os
 
+# Credentials from GitHub Secrets
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("EMAIL_PASSWORD")
 
+# Yahoo SMTP configuration
+SMTP_SERVER = "smtp.mail.yahoo.com"
+SMTP_PORT = 465
+
 def send_email(to_email, subject, body):
+    """Envoi d'un email via Yahoo SMTP."""
     if "@" not in to_email:
         print(f"❌ Email invalide ignoré : {to_email}")
         return
@@ -18,7 +24,7 @@ def send_email(to_email, subject, body):
     msg["Subject"] = subject
 
     try:
-        with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
+        with smtplib.SMTP_SSL(SMTP_SERVER, SMTP_PORT) as server:
             server.login(EMAIL, PASSWORD)
             server.send_message(msg)
         print(f"📨 Email envoyé à {to_email}")
@@ -26,12 +32,13 @@ def send_email(to_email, subject, body):
         print(f"⚠️ Erreur en envoyant à {to_email}: {e}")
 
 def notify_brothers(name, notify_list, message_type="default"):
-    # Messages
+    """Choix du message selon la personne (Papa ou un frère)."""
+
     if message_type == "papa":
         subject = "🎉 Aujourd'hui, notre cher Papa fête son anniversaire !"
         body = (
             "Salut les frères,\n\n"
-            "Aujourd'hui c'est l'anniversaire de notre cher papa ❤️🎉.\n"
+            "Aujourd'hui c'est l'anniversaire de notre cher Papa ❤️🎉.\n"
             "N'oublions pas de lui souhaiter un bon anniversaire et de l'appeler !\n\n"
             "— BakatambaBot 🤖"
         )
@@ -44,11 +51,11 @@ def notify_brothers(name, notify_list, message_type="default"):
             "— BakatambaBot 🤖"
         )
 
-    # Envoi à toute la liste
     for email in notify_list:
         send_email(email, subject, body)
 
 def check_birthdays():
+    """Lit le fichier birthdays.json et déclenche les rappels."""
     today = datetime.now().strftime("%m-%d")
 
     with open("birthdays.json") as f:
@@ -56,13 +63,12 @@ def check_birthdays():
 
     for name, info in data.items():
         if info["date"] == today:
-
             print(f"🎯 ANNIVERSAIRE TROUVÉ : {name}")
 
-            if name == "Papa":
+            if name.lower() == "papa":
                 notify_brothers(name, info["notify"], message_type="papa")
             else:
-                notify_brothers(name, info["notify"], message_type="default")
+                notify_brothers(name, info["notify"])
 
         else:
             print(f"— Pas d'anniversaire pour {name}")
